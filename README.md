@@ -1,0 +1,2 @@
+# squint
+Daily Rebus Game
