@@ -1,0 +1,81 @@
+.box {
+  width: 100%;
+  max-width: 360px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 0 1px rgba(6, 182, 212, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 2.5rem 2rem;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.shaking {
+  animation: shake 0.45s ease-in-out;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.token {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: var(--text);
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Size variants */
+.sizeXs { font-size: 0.85rem; font-weight: 500; }
+.sizeSm { font-size: 1.25rem; font-weight: 600; }
+.sizeMd { font-size: 2rem; }
+.sizeLg { font-size: 3rem; }
+.sizeXl { font-size: 4.5rem; letter-spacing: 0.02em; }
+
+/* Gap variants (left margin before this token) */
+.gapSm { margin-left: 0.75rem; }
+.gapMd { margin-left: 1.5rem; }
+.gapLg { margin-left: 2.5rem; }
+.gapXl { margin-left: 4rem; }
+
+/* Dim variant */
+.dim {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+/* SVG puzzle wrapper */
+.svgWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+/* Operator token (+, -, =) */
+.op {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-dim);
+  margin: 0 0.75rem;
+  align-self: center;
+  user-select: none;
+  flex-shrink: 0;
+  line-height: 1;
+}

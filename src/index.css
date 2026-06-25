@@ -1,0 +1,140 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #070c12;
+  --bg-surface: #0b1520;
+  --surface: #101e2c;
+  --surface-hover: #172636;
+  --surface-elevated: #1d2f41;
+  --text: #ddeeff;
+  --text-secondary: #7aa0be;
+  --text-dim: #3a5468;
+  --accent: #06b6d4;
+  --accent-hover: #22d3ee;
+  --accent-subtle: rgba(6, 182, 212, 0.12);
+  --accent-glow: rgba(6, 182, 212, 0.25);
+  --correct: #4ade80;
+  --correct-subtle: rgba(74, 222, 128, 0.1);
+  --wrong: #fb7185;
+  --wrong-subtle: rgba(251, 113, 133, 0.1);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-hover: rgba(255, 255, 255, 0.13);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.6);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #020810;
+  background-image:
+    /* Focal glow — illuminates the centre dot cluster */
+    radial-gradient(ellipse at 50% 38%, rgba(6, 182, 212, 0.13) 0%, transparent 50%),
+    /* Primary dot grid */
+    radial-gradient(circle, rgba(6, 182, 212, 0.22) 1.5px, transparent 1.5px),
+    /* Secondary dot grid — offset by half, smaller — creates scattered depth */
+    radial-gradient(circle, rgba(6, 182, 212, 0.07) 1px, transparent 1px),
+    /* Vignette — dark rim */
+    radial-gradient(ellipse at 50% 50%, transparent 20%, rgba(0, 2, 8, 0.95) 85%),
+    /* Base */
+    linear-gradient(180deg, #060f1c 0%, #020810 100%);
+  background-size: auto, 26px 26px, 13px 13px, auto, auto;
+  background-position: 0 0, 0 0, 13px 13px, 0 0, 0 0;
+  background-attachment: fixed;
+}
+
+/* Breathing lens glow */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 38%, rgba(6, 182, 212, 0.07) 0%, transparent 42%);
+  z-index: 0;
+  animation: lensBreath 7s ease-in-out infinite;
+}
+
+@keyframes lensBreath {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0%   { transform: scale(0.3); opacity: 0; }
+  50%  { transform: scale(1.05); }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+@keyframes popIn {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
+  50%       { box-shadow: 0 0 40px rgba(6, 182, 212, 0.4); }
+}
