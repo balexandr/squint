@@ -1,0 +1,9 @@
+{
+  "name": "Squint",
+  "short_name": "Squint",
+  "description": "Daily rebus brain teaser",
+  "start_url": "/squint/",
+  "display": "standalone",
+  "background_color": "#070c12",
+  "theme_color": "#06b6d4"
+}
