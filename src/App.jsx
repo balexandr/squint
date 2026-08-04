@@ -8,7 +8,7 @@ import StatsScreen from './components/StatsScreen';
 import styles from './App.module.css';
 import { NoodleLogoIcon } from './components/NoodleLogo';
 import { GameLogo } from './components/GameLogo';
-import { recordTodayShare, getCompletedTodayCount, buildShareAllText } from './utils/shareAll';
+import { recordTodayShare, getCompletedTodayCount, buildShareAllText, TOTAL_GAMES } from './utils/shareAll';
 
 const HOW_TO_PLAY_KEY = 'squint-how-to-play-seen';
 
@@ -104,7 +104,7 @@ export default function App() {
           className={`${styles.footerShareAll} ${shareAllCopied ? styles.copied : ''}`}
           onClick={handleShareAll}
         >
-          {shareAllCopied ? '✓ Copied' : `⬆ Share all completed (${shareAllCount}/8)`}
+          {shareAllCopied ? '✓ Copied' : `⬆ Share all completed (${shareAllCount}/${TOTAL_GAMES})`}
         </button>
       )}
       <span className={styles.footerCopy}>© {currentYear} NoodleGames.co</span>
